@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <LangVersion>10</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="OpenMod.Unturned" Version="3.3.8" />
+      <PackageReference Include="SilK.Unturned.Extras" Version="1.7.3" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <EmbeddedResource Include="config.yaml;translations.yaml" />
+    </ItemGroup>
+
+</Project>

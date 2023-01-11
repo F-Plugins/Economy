@@ -1,0 +1,6 @@
+﻿economy:
+  currency:
+    name: "coins"
+    symbol: "$"
+  errors:
+    not_enough_balance: "You don't have enough balance to pay {CurrencySymbol}{Amount}. Balance: {CurrencySymbol}{Balance}"

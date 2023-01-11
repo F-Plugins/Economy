@@ -1,6 +1,0 @@
-BalanceConfiguration:
-  DefaultBalance: 500
-
-CurrencyConfiguration:
-  CurrencyName: "Bucks"
-  CurrencySymbol: "$"

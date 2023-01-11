@@ -1,0 +1,4 @@
+﻿economy:
+  use_xp: true
+  allow_setting_negative_balance: false
+  initial_balance: 100

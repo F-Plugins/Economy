@@ -1,0 +1,8 @@
+﻿database:
+  ConnectionStrings:
+    default: "Server=localhost;Database=openmod;Uid=admin;Pwd=admin;"
+    
+# Server is the mysql server ip. if its on your own computer use localhost
+# Database the database you want to use
+# Uid is the mysql user
+# Pwd is the mysql password

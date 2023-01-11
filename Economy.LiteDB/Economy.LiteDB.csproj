@@ -1,12 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <LangVersion>10</LangVersion>
-    </PropertyGroup>
+    <Import Project="..\shared.props" />
 
+    <PropertyGroup>
+      <Description>LiteDB respositories implementation for Feli.Economy plugin</Description>
+    </PropertyGroup>
+    
     <ItemGroup>
       <ProjectReference Include="..\Economy\Economy.csproj" />
     </ItemGroup>
@@ -14,6 +13,10 @@
     <ItemGroup>
       <PackageReference Include="LiteDB" Version="5.0.15" />
       <PackageReference Include="SilK.Unturned.Extras" Version="1.7.3" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <EmbeddedResource Include="packages.yaml" />
     </ItemGroup>
 
 </Project>

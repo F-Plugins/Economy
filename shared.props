@@ -1,0 +1,20 @@
+﻿<Project>
+    <PropertyGroup>
+        <TargetFramework>net48</TargetFramework>
+        <LangVersion>10</LangVersion>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <PropertyGroup>
+        <PackageId>Feli.$(AssemblyName)</PackageId>
+        <PackageTags>openmod openmod-plugin unturned</PackageTags>
+        <Version>0.0.0</Version>
+        <PackageVersion>0.0.0</PackageVersion>
+        <InformationalVersion>0.0.0</InformationalVersion>
+        <Authors>Feli</Authors>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/F-Plugins/Economy</RepositoryUrl>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+</Project>

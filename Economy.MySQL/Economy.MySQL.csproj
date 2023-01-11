@@ -1,12 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+    <Import Project="..\shared.props" />
+    
     <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <LangVersion>10</LangVersion>
+        <Description>MySql respositories implementation for Feli.Economy plugin</Description>
     </PropertyGroup>
-
+    
     <ItemGroup>
       <ProjectReference Include="..\Economy\Economy.csproj" />
     </ItemGroup>
@@ -20,6 +19,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <EmbeddedResource Include="config.yaml" />
+        <EmbeddedResource Include="config.yaml;packages.yaml" />
     </ItemGroup>
 </Project>

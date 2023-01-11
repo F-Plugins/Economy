@@ -1,12 +1,11 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-    <PropertyGroup>
-        <TargetFramework>net48</TargetFramework>
-        <ImplicitUsings>enable</ImplicitUsings>
-        <Nullable>enable</Nullable>
-        <LangVersion>10</LangVersion>
-    </PropertyGroup>
+    <Import Project="..\shared.props" />
 
+    <PropertyGroup>
+        <Description>Unturned economy plugin that supports xp and balance. To install this plugin go here: https://github.com/F-Plugins/Economy/blob/main/README.md</Description>
+    </PropertyGroup>
+    
     <ItemGroup>
       <PackageReference Include="OpenMod.Unturned" Version="3.3.8" />
       <PackageReference Include="SilK.Unturned.Extras" Version="1.7.3" />

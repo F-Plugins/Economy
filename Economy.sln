@@ -6,6 +6,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Economy.LiteDB", "Economy.L
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Economy.MySql", "Economy.MySql\Economy.MySql.csproj", "{C851B0A7-9A64-4C7F-8B23-F50B266DF51D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "shared", "shared", "{A787C5C7-6BA0-4330-8D20-7E9C98E5C65C}"
+	ProjectSection(SolutionItems) = preProject
+		shared.props = shared.props
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

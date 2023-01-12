@@ -27,7 +27,7 @@ jobs:
       - name: Update informational version
         run: 'sed -i "s#<InformationalVersion>0.0.0</InformationalVersion>#<InformationalVersion>${{ github.event.inputs.version }}</InformationalVersion>#" shared.props'
       - name: Build
-        run: dotnet build --configuration Release --no-restore
+        run: dotnet build --configuration Release
       - name: Push Economy to NuGet
         run: dotnet nuget push Economy/bin/Release/*.nupkg
           --api-key ${{ secrets.NUGET_DEPLOY_KEY }}

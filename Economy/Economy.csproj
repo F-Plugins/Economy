@@ -12,7 +12,7 @@
     </ItemGroup>
     
     <ItemGroup>
-        <EmbeddedResource Include="config.yaml;translations.yaml" />
+        <EmbeddedResource Include="config.yaml;translations.yaml;packages.yaml" />
     </ItemGroup>
 
 </Project>

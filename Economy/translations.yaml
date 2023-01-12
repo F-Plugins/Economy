@@ -1,4 +1,20 @@
-﻿economy:
+﻿commands:
+  success: 
+    balance_display: "You have {CurrencySymbol}{Balance} {CurrencyName}"
+    balance_display_other: "{User.DisplayName} has {CurrencySymbol}{Balance} {CurrencyName}"
+    payment: 
+      sent: "Successfully payed {Target.DisplayName} {CurrencySymbol}{Amount} {CurrencyName} {Reason:cond:for {}|}"
+      receive: "You got {CurrencySymbol}{Amount} {CurrencyName} from {Sender.DisplayName} {Reason:cond:for {}|}"
+    withdraw:
+      sent: "Successfully withdraw {CurrencySymbol}{Amount} {CurrencyName} {Reason:cond:for {} |}from {Target.DisplayName} account"
+      receive: "{Sender.DisplayName} just withdrew {CurrencySymbol}{Amount} {CurrencyName} {Reason:cond:for {} |}from you"
+    print: "Successfully printed {CurrencySymbol}{Amount} {CurrencyName} {PayingSelf:cond:|for {Target.DisplayName}}"
+    burn: "Successfully burned {CurrencySymbol}{Amount} {CurrencyName}"
+  errors:
+    user_not_found: "User named {Query} was not found"
+    pay_self: "There is no point on paying yourself"
+    pay_negative: "There is no point on paying a negative amount"
+economy:
   currency:
     name: "coins"
     symbol: "$"

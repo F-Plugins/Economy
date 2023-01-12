@@ -32,16 +32,19 @@ public class ExperienceSynchronizer : IExperienceSynchronizer,
     private readonly ConcurrentDictionary<CSteamID, uint> _playerBalance; // Dictionary used to avoid calling the economy provider in the experience update method
     private readonly IEconomyProvider _economyProvider;
     private readonly IUnturnedUserDirectory _unturnedUserDirectory;
+    private readonly ILogger<ExperienceSynchronizer> _logger;
 
     public ExperienceSynchronizer(
         IConfiguration configuration,
         IEconomyProvider economyProvider,
-        IUnturnedUserDirectory unturnedUserDirectory)
+        IUnturnedUserDirectory unturnedUserDirectory, 
+        ILogger<ExperienceSynchronizer> logger)
     {
         _configuration = configuration;
         _playerBalance = new ConcurrentDictionary<CSteamID, uint>();
         _economyProvider = economyProvider;
         _unturnedUserDirectory = unturnedUserDirectory;
+        _logger = logger;
     }
 
     public async UniTask HandleEventAsync(object? sender, UnturnedUserConnectedEvent @event)
@@ -56,7 +59,14 @@ public class ExperienceSynchronizer : IExperienceSynchronizer,
         if (balance != xp)
         {
             _playerBalance.TryAdd(@event.User.SteamId, balance);
-            @event.User.Player.Player.skills.ServerSetExperience(balance);
+            UniTask.Run(async () => // wait until the frame ends so Rocket.Unturned.Events.UnturnedPlayerEvents.InternalOnExperienceChanged does not fail
+            {
+                await UniTask.WaitForEndOfFrame();
+                @event.User.Player.Player.skills.ServerSetExperience(balance);
+            }).Forget(e =>
+            {
+                _logger.LogError(e, "There was an error while setting the player experience");
+            });
         }
     }
 

@@ -1,3 +1,5 @@
 ﻿packages:
   - id: OpenMod.EntityFrameworkCore.MySql
     version: 3.3.8
+  - id: Feli.Economy
+    version: latest

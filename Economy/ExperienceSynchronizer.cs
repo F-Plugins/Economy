@@ -11,10 +11,8 @@ using OpenMod.Core.Users;
 using OpenMod.Extensions.Economy.Abstractions;
 using OpenMod.Unturned.Players.Connections.Events;
 using OpenMod.Unturned.Players.Skills.Events;
-using OpenMod.Unturned.Players.Stats.Events;
 using OpenMod.Unturned.Users;
 using OpenMod.Unturned.Users.Events;
-using SDG.Unturned;
 using SilK.Unturned.Extras.Events;
 using Steamworks;
 

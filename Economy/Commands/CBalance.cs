@@ -53,9 +53,9 @@ public class CBalance : UnturnedCommand
 
         var balance = await _economyProvider.GetBalanceAsync(target.Id, target.Type);
         
-        var tanslationKey = target.Id == Context.Actor.Id ? "commands:success:balance_display" : "commands:success:balance_display_other";
+        var translationKey = target.Id == Context.Actor.Id ? "commands:success:balance_display" : "commands:success:balance_display_other";
 
-        await PrintAsync(_stringLocalizer[tanslationKey, new
+        await PrintAsync(_stringLocalizer[translationKey, new
         {
             User = target,
             _economyProvider.CurrencyName,

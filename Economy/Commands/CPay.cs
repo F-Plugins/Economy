@@ -46,8 +46,9 @@ public class CPay : UnturnedCommand
         if (payingHimself && await CheckPermissionAsync(PaySelf) != PermissionGrantResult.Grant)
             throw new UserFriendlyException(_stringLocalizer["commands:errors:pay_self"]);
 
-        var amount = await Context.Parameters.GetAsync<decimal>(1);
-
+        if (!Context.Parameters.TryGet(0, out decimal amount))
+            throw new CommandWrongUsageException(Context);
+        
         var negativeAmount = amount < 0;
 
         if (negativeAmount && await CheckPermissionAsync(PayNegative) != PermissionGrantResult.Grant)

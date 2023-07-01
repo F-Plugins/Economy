@@ -25,7 +25,7 @@ public class CPay : UnturnedCommand
 
     private readonly IStringLocalizer _stringLocalizer;
     private readonly IEconomyProvider _economyProvider;
-    
+
     public CPay(
         IServiceProvider serviceProvider,
         IStringLocalizer stringLocalizer,
@@ -46,9 +46,9 @@ public class CPay : UnturnedCommand
         if (payingHimself && await CheckPermissionAsync(PaySelf) != PermissionGrantResult.Grant)
             throw new UserFriendlyException(_stringLocalizer["commands:errors:pay_self"]);
 
-        if (!Context.Parameters.TryGet(0, out decimal amount))
+        if (!Context.Parameters.TryGet(1, out decimal amount))
             throw new CommandWrongUsageException(Context);
-        
+
         var negativeAmount = amount < 0;
 
         if (negativeAmount && await CheckPermissionAsync(PayNegative) != PermissionGrantResult.Grant)
@@ -85,13 +85,13 @@ public class CPay : UnturnedCommand
         }
 
         var sendTranslationKey = "commands:success:payment:sent";
-        
+
         if (!infiniteAccount)
         {
             await _economyProvider.UpdateBalanceAsync(Context.Actor.Id, Context.Actor.Type,
                 negativeAmount ? amount : -amount, reason);
         }
-        
+
         if (infiniteAccount && !negativeAmount)
         {
             sendTranslationKey = "commands:success:print";
@@ -100,9 +100,9 @@ public class CPay : UnturnedCommand
         {
             sendTranslationKey = "commands:success:withdraw:sent";
         }
-        
+
         var receiveTranslationKey = negativeAmount ? "commands:success:withdraw:receive" : "commands:success:payment:receive";
-        
+
         try
         {
             await _economyProvider.UpdateBalanceAsync(target.Id, target.Type, amount, reason);
@@ -123,7 +123,7 @@ public class CPay : UnturnedCommand
             Sender = Context.Actor,
             PayingSelf = false
         };
-        
+
         await PrintAsync(_stringLocalizer[sendTranslationKey, translationArgs], Color.LawnGreen);
         await target.PrintMessageAsync(_stringLocalizer[receiveTranslationKey, translationArgs], Color.LawnGreen);
     }

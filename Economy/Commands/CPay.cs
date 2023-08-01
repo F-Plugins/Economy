@@ -37,6 +37,9 @@ public class CPay : UnturnedCommand
 
     protected override async UniTask OnExecuteAsync()
     {
+        if (Context.Parameters.Length < 2)
+            throw new CommandWrongUsageException(Context);
+
         if (!Context.Parameters.TryGet<IUser>(0, out var target))
             throw new UserFriendlyException(_stringLocalizer["commands:errors:user_not_found",
                 new { Query = Context.Parameters[0] }]);
